@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_mobileprogramming/screens/login_screen.dart';
 
 // fungsi utama - titik masuk aplikasi berjalan
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       // Daftar semua halaman beserta alamat route-nya
       routes: {
-        '/': (context) => const Placeholder(),
+        '/': (context) => const LoginScreen(),
 
         '/forgot_password': (context) => const Placeholder(),
 
