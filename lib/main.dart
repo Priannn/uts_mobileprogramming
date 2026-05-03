@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobileprogramming/screens/forgot_password.dart';
 import 'package:uts_mobileprogramming/screens/login_screen.dart';
+import 'package:uts_mobileprogramming/screens/dashboard_screen.dart';
 
 // fungsi utama - titik masuk aplikasi berjalan
 void main() {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
 
         '/forgot_password': (context) => const ForgotPassword(),
 
-        '/dashboard': (context) => const Placeholder(),
+        '/dashboard': (context) => const DashboardScreen(),
       },
     );
   }
