@@ -1,17 +1,95 @@
-# uts_mobileprogramming
+# UTS Mobile Programming — Flutter
 
-A new Flutter project.
+Aplikasi Flutter 3 halaman yang dibuat sebagai tugas UTS mata kuliah Mobile Programming.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 Deskripsi Aplikasi
 
-A few resources to get you started if this is your first Flutter project:
+Aplikasi ini mensimulasikan alur autentikasi sederhana yang terdiri dari:
+- Halaman Login dengan validasi form
+- Halaman Lupa Password
+- Halaman Dashboard setelah login berhasil
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ✨ Daftar Fitur
+
+### Halaman Login
+- Form input Email dan Password
+- Validasi email (tidak boleh kosong, harus format email)
+- Validasi password (tidak boleh kosong, minimal 8 karakter, harus mengandung huruf dan angka)
+- Toggle show/hide password
+- Loading indicator saat proses login
+- Pesan error jika login gagal
+- Navigasi ke halaman Lupa Password
+- Login dengan kredensial: `admin@test.com` / `Admin123`
+
+### Halaman Lupa Password
+- Form input Email dengan validasi format email
+- Loading indicator saat tombol ditekan
+- Snackbar feedback setelah tombol ditekan
+- Tombol kembali ke halaman Login
+
+### Halaman Dashboard
+- Tampilan data user yang sedang login
+- Card sambutan dengan nama dan email user
+- ListView 10 item menu dengan Card styling
+- Snackbar saat item menu ditekan
+- Dialog konfirmasi sebelum logout
+- Logout menggunakan pushAndRemoveUntil
+
+---
+
+## 🚀 Cara Menjalankan Aplikasi
+
+
+### Langkah-langkah
+
+1. Clone repository ini
+\```bash
+git clone https://github.com/username/uts_mobile.git
+\```
+
+2. Masuk ke folder project
+\```bash
+cd uts_mobile
+\```
+
+3. Install semua package
+\```bash
+flutter pub get
+\```
+
+4. Jalankan aplikasi
+\```bash
+flutter run
+\```
+
+---
+
+## 🔑 Kredensial Login
+
+| Email | Password |
+|-------|----------|
+| admin@test.com | Admin123 |
+
+---
+
+## 📸 Screenshot
+
+### Halaman Login
+![Login Screen](screenshots/login.png)
+
+### Halaman Lupa Password
+![Forgot Password Screen](screenshots/forgot_password.png)
+
+### Halaman Dashboard
+![Dashboard Screen](screenshots/dashboard.png)
+
+---
+
+
+---
+
+## 📁 Struktur Folder
