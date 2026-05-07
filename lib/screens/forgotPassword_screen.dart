@@ -60,16 +60,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Icon(Icons.lock_reset, size: 80, color: Colors.blue),
+                  const Icon(Icons.lock_reset, size: 80, color: Colors.deepOrange),
                   const SizedBox(height: 24),
                   const Text(
-                    'Reset Password',
+                    'Lupa Password?',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Masukkan email kamu, kami akan kirimkan link untuk reset password',
+                    'Tenang! Masukkan email kamu di bawah, dan kami akan bantu reset password akun eidipiGYM kamu.',
                     style: TextStyle(fontSize: 14, color: Colors.grey),
                     textAlign: TextAlign.center,
                   ),

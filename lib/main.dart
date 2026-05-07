@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uts_mobileprogramming/screens/forgot_password.dart';
+import 'package:uts_mobileprogramming/screens/forgotPassword_screen.dart';
 import 'package:uts_mobileprogramming/screens/login_screen.dart';
 import 'package:uts_mobileprogramming/screens/dashboard_screen.dart';
 
@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // Judul aplikasi
-      title: 'UTS Mobile',
+      title: 'eidipiGYM',
       // Menghilangkan tulisan "DEBUG" di pojok kanan atas
       debugShowCheckedModeBanner: false,
       // Warna tema utama aplikasi
-      theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
+      theme: ThemeData(colorSchemeSeed: Colors.deepOrange, useMaterial3: true),
       // Halaman pertama yang muncul saat aplikasi dibuka
       initialRoute: '/',
       // Daftar semua halaman beserta alamat route-nya

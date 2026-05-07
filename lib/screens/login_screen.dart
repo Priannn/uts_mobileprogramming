@@ -68,14 +68,21 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  const Icon(
+                    Icons.fitness_center, // Icon barbel
+                    size: 80,
+                    color: Colors.orange,
+                  ),
+
+                  const SizedBox(height: 16),
                   const Text(
-                    'Selamat Datang!',
+                    'Selamat Datang di eidipiGYM!',
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Silakan login untuk melanjutkan',
+                    'Login untuk mulai latihan kamu hari ini',
                     style: TextStyle(fontSize: 14, color: Colors.grey),
                     textAlign: TextAlign.center,
                   ),
