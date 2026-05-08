@@ -93,3 +93,21 @@ flutter run
 ---
 
 ## 📁 Struktur Folder
+uts_mobile/
+├── lib/
+│   ├── main.dart
+│   ├── screens/
+│   │   ├── login_screen.dart
+│   │   ├── forgot_password_screen.dart
+│   │   └── dashboard_screen.dart
+│   ├── widgets/
+│   │   └── custom_button.dart
+│   ├── models/
+│   │   └── user_model.dart
+│   └── utils/
+│       └── validators.dart
+├── screenshots/
+│   ├── login.png
+│   ├── forgot_password.png
+│   └── dashboard.png
+└── README.md

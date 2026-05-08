@@ -3,7 +3,6 @@ import 'package:uts_mobileprogramming/screens/forgotPassword_screen.dart';
 import 'package:uts_mobileprogramming/screens/login_screen.dart';
 import 'package:uts_mobileprogramming/screens/dashboard_screen.dart';
 
-// fungsi utama - titik masuk aplikasi berjalan
 void main() {
   runApp(const MyApp());
 }
@@ -17,12 +16,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Judul aplikasi
       title: 'eidipiGYM',
+
       // Menghilangkan tulisan "DEBUG" di pojok kanan atas
       debugShowCheckedModeBanner: false,
+
       // Warna tema utama aplikasi
       theme: ThemeData(colorSchemeSeed: Colors.deepOrange, useMaterial3: true),
+
       // Halaman pertama yang muncul saat aplikasi dibuka
       initialRoute: '/',
+
       // Daftar semua halaman beserta alamat route-nya
       routes: {
         '/': (context) => const LoginScreen(),
