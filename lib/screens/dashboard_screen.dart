@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+import 'login_screen.dart'; // Import halaman login untuk fungsi logout
 
+// DashboardScreen adalah halaman utama setelah login berhasil
+// Pakai StatelessWidget karena tidak ada state yang berubah di halaman ini
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
-  // Data dummy menu gym — 10 item
+  // Data dummy menu gym — 10 item bertema fitness
   final List<Map<String, dynamic>> _menuItems = const [
     {
       'title': 'Jadwal Latihan',
@@ -63,11 +65,11 @@ class DashboardScreen extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        // Judul dialog logout
+        // Judul dialog konfirmasi logout
         title: const Text('Konfirmasi Logout'),
         content: const Text('Apakah kamu yakin ingin keluar dari eidipiGYM?'),
         actions: [
-          // Tombol batal
+          // Tombol batal — tutup dialog saja
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: const Text('Batal'),
@@ -75,16 +77,16 @@ class DashboardScreen extends StatelessWidget {
           // Tombol logout
           ElevatedButton(
             onPressed: () {
-              // pushAndRemoveUntil = hapus semua history navigasi
-              // supaya user tidak bisa back ke dashboard setelah logout
+              // pushAndRemoveUntil = pindah ke login dan hapus semua
+              // history navigasi supaya user tidak bisa back ke dashboard
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
-                (route) => false,
+                (route) => false, // false = hapus semua route sebelumnya
               );
             },
             style: ElevatedButton.styleFrom(
-              // Warna tombol logout merah
+              // Warna merah untuk tombol logout
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
             ),
@@ -97,14 +99,22 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Ambil data user yang dikirim dari halaman login saat navigasi
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+
+    // Ambil nama dan email dari arguments
+    final String nama = args['name']!;
+    final String email = args['email']!;
+
     return Scaffold(
       appBar: AppBar(
-        // Judul AppBar dengan nama aplikasi
+        // Judul AppBar
         title: const Text('eidipiGYM'),
         // Hilangkan tombol back otomatis
         automaticallyImplyLeading: false,
         actions: [
-          // Tombol logout di pojok kanan
+          // Tombol logout di pojok kanan AppBar
           IconButton(
             icon: const Icon(Icons.logout),
             tooltip: 'Logout',
@@ -114,9 +124,10 @@ class DashboardScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
+          // Column menyusun widget secara vertikal
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Card sambutan user
+            // Card sambutan user di bagian atas
             Padding(
               padding: const EdgeInsets.all(16),
               child: Card(
@@ -128,6 +139,7 @@ class DashboardScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Row(
+                    // Row menyusun widget secara horizontal
                     children: [
                       // Avatar dengan icon gym
                       const CircleAvatar(
@@ -139,27 +151,32 @@ class DashboardScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(width: 16),
-                      const Column(
+
+                      const SizedBox(width: 16), // Jarak horizontal
+                      // Kolom teks sambutan
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Selamat Datang! 💪',
                             style: TextStyle(fontSize: 14, color: Colors.grey),
                           ),
-                          SizedBox(height: 4),
-                          // Nama user
+                          const SizedBox(height: 4),
+                          // Nama user — diambil dari state login
                           Text(
-                            'Admin eidipiGYM',
-                            style: TextStyle(
+                            nama,
+                            style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          // Email user
+                          // Email user — diambil dari state login
                           Text(
-                            'admin@test.com',
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                            email,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
                           ),
                         ],
                       ),
@@ -178,19 +195,23 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 8),
-
-            // ListView 10 item menu gym
+            const SizedBox(height: 8), // Jarak vertikal
+            // ListView.builder untuk menampilkan daftar menu gym
+            // Expanded supaya ListView mengisi sisa ruang yang ada
             Expanded(
               child: ListView.builder(
+                // Jumlah item yang ditampilkan
                 itemCount: _menuItems.length,
+                // Builder dipanggil untuk setiap item
                 itemBuilder: (context, index) {
+                  // Ambil data item berdasarkan index
                   final item = _menuItems[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                       vertical: 4,
                     ),
+                    // Card untuk setiap item menu
                     child: Card(
                       // Styling card dengan shadow dan rounded corner
                       elevation: 2,
@@ -206,11 +227,14 @@ class DashboardScreen extends StatelessWidget {
                             color: Colors.orange,
                           ),
                         ),
+                        // Judul item menu
                         title: Text(item['title'] as String),
+                        // Subjudul item menu
                         subtitle: Text(item['subtitle'] as String),
+                        // Icon panah di sebelah kanan
                         trailing: const Icon(Icons.chevron_right),
                         onTap: () {
-                          // Snackbar saat item ditekan
+                          // Tampilkan snackbar saat item menu ditekan
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text('${item['title']} ditekan'),

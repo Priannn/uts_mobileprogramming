@@ -7,7 +7,7 @@ String? validateEmail(String? value) {
     return 'Email tidak boleh kosong';
   }
   // Cek format email menggunakan regex
-  if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+  if (!RegExp(r'^[\w]+@[\w]+\.+[\w]+').hasMatch(value)) {
     return 'Format email tidak valid';
   }
   return null; // null berarti validasi lolos

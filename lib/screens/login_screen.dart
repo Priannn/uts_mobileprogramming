@@ -55,11 +55,15 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordController.text;
 
     // Cek apakah credential sesuai yang di-hardcode
-    if (email == 'admin@test.com' && password == 'Admin123') {
+    if (email == 'adprian@test.com' && password == 'Admin123') {
       // Login sukses — pindah ke halaman Dashboard
       // mounted: pastikan widget masih ada sebelum navigasi
       if (mounted) {
-        Navigator.pushReplacementNamed(context, '/dashboard');
+        Navigator.pushReplacementNamed(
+          context,
+          '/dashboard',
+          arguments: {'email': email, 'name': 'Admin eidipiGYM'},
+        );
       }
     } else {
       // Login gagal — tampilkan Snackbar merah
@@ -87,7 +91,6 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         // Stack menumpuk widget, yang pertama di bawah, yang terakhir di atas
         children: [
-
           // Layer 1 (paling bawah) — dekorasi lingkaran oranye di pojok atas kanan
           Positioned(
             top: -50,
@@ -132,7 +135,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     // Column menyusun widget secara vertikal
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-
                       // Icon gym di atas form
                       const Icon(
                         Icons.fitness_center, // Icon barbel
@@ -141,10 +143,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       const SizedBox(height: 16), // Jarak vertikal
-
                       // Judul halaman
                       const Text(
-                        '💪 Selamat Datang di FitZone!',
+                        '💪 Selamat Datang di eidipiGYM!',
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
@@ -153,7 +154,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       const SizedBox(height: 8), // Jarak vertikal
-
                       // Subjudul halaman
                       const Text(
                         'Login untuk mulai latihan kamu hari ini',
@@ -162,7 +162,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       const SizedBox(height: 32), // Jarak vertikal
-
                       // Field Email
                       TextFormField(
                         controller: _emailController,
@@ -179,7 +178,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       const SizedBox(height: 16), // Jarak vertikal
-
                       // Field Password
                       TextFormField(
                         controller: _passwordController,
@@ -210,7 +208,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       const SizedBox(height: 24), // Jarak vertikal
-
                       // Tombol Login — pakai CustomButton dari widgets/
                       CustomButton(
                         label: 'Login',
@@ -219,7 +216,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       const SizedBox(height: 16), // Jarak vertikal
-
                       // Tombol Lupa Password
                       TextButton(
                         onPressed: () {
@@ -228,14 +224,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         child: const Text('Lupa Password?'),
                       ),
-
                     ],
                   ),
                 ),
               ),
             ),
           ),
-
         ],
       ),
     );
