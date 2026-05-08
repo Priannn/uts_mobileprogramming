@@ -3,9 +3,6 @@ import 'package:uts_mobileprogramming/screens/forgotPassword_screen.dart';
 import 'package:uts_mobileprogramming/screens/login_screen.dart';
 import 'package:uts_mobileprogramming/screens/dashboard_screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
 // MyApp adalah widget utama yang membungkus seluruh aplikasi
 class MyApp extends StatelessWidget {
@@ -17,7 +14,7 @@ class MyApp extends StatelessWidget {
       // Judul aplikasi
       title: 'eidipiGYM',
 
-      // Menghilangkan tulisan "DEBUG" di pojok kanan atas
+    
       debugShowCheckedModeBanner: false,
 
       // Warna tema utama aplikasi

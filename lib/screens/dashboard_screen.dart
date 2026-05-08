@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart'; // Import halaman login untuk fungsi logout
+import 'package:uts_mobileprogramming/models/user_models.dart';
 
 // DashboardScreen adalah halaman utama setelah login berhasil
 // Pakai StatelessWidget karena tidak ada state yang berubah di halaman ini
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
-  // Data dummy menu gym — 10 item bertema fitness
+  // Data dummy untuk daftar menu di dashboard
   final List<Map<String, dynamic>> _menuItems = const [
     {
       'title': 'Jadwal Latihan',
@@ -99,13 +100,12 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ambil data user yang dikirim dari halaman login saat navigasi
-    final args =
-        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+    // Ambil data user yang dikirim dari halaman user models login melalui arguments
+    final user = ModalRoute.of(context)?.settings.arguments as UserModel?;
 
     // Ambil nama dan email dari arguments
-    final String nama = args['name']!;
-    final String email = args['email']!;
+    final String nama = user?.name ?? 'Admin eidipiGYM';
+    final String email = user?.email ?? 'admin@test.com';
 
     return Scaffold(
       appBar: AppBar(

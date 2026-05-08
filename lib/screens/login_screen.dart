@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_mobileprogramming/models/user_models.dart';
 import '../utils/validator.dart'; // Import fungsi validasi
 import '../widgets/customButton.dart'; // Import widget tombol custom
 
@@ -62,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacementNamed(
           context,
           '/dashboard',
-          arguments: {'email': email, 'name': 'Admin eidipiGYM'},
+          arguments: UserModel(name: 'Admin eidipiGYM', email: email),
         );
       }
     } else {

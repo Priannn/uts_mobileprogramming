@@ -47,7 +47,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     });
 
     // 2. Simulasi proses nembak ke server/database (delay 2 detik)
-    // Pas ujian, kamu bisa bilang: "Ini pura-puranya nunggu respon API, Pak."
     await Future.delayed(const Duration(seconds: 2));
 
     // 3. Matikan status loading setelah proses selesai
