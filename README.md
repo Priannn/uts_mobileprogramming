@@ -48,7 +48,7 @@ Aplikasi ini mensimulasikan alur autentikasi sederhana yang terdiri dari:
 
 1. Clone repository ini
 \```bash
-git clone https://github.com/username/uts_mobile.git
+git clone https://github.com/Priannn/uts_mobileprogramming.git
 \```
 
 2. Masuk ke folder project
